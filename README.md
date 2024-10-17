@@ -1,6 +1,6 @@
-# Splitkb QMK Userspace
+# Splitkb Vial Userspace
 
-This is the splitkb userspace repository which allows for an external set of QMK keymaps with halcyon modules to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the splitkb QMK or vial repository.
+This is the splitkb userspace repository which allows for an external set of Vial keymaps with halcyon modules to be defined and compiled. This is useful for users who want to maintain their own keymaps without having to fork the splitkb QMK or vial repository.
 
 If you want to compile firmware without any modules you can also use the [main qmk_userspace repo](https://github.com/qmk/qmk_userspace).
 
@@ -61,7 +61,7 @@ If you wish to point GitHub actions to a different repository, a different branc
 To override the `build` job, you can change the following parameters to use a different QMK repository or branch, this can be useful if you want to use a different QMK or vial branch for example:
 ```
     with:
-      qmk_repo: splitkb/qmk_firmware
+      qmk_repo: splitkb/vial_qmk
       qmk_ref: halcyon-kyria
 ```
 
