@@ -3,7 +3,7 @@
     "build_targets": [
         [
             "splitkb/halcyon/kyria/rev4",
-            "vial",
+            "vial_hlc",
             {
                 "HLC_TFT_DISPLAY": "1",
                 "TARGET": "halcyon_kyria_rev4_vial_hlc_display"
@@ -11,7 +11,7 @@
         ],
         [
             "splitkb/halcyon/kyria/rev4",
-            "vial",
+            "vial_hlc",
             {
                 "HLC_ENCODER": "1",
                 "TARGET": "halcyon_kyria_rev4_vial_hlc_encoder"
@@ -19,7 +19,7 @@
         ],
         [
             "splitkb/halcyon/kyria/rev4",
-            "vial",
+            "vial_hlc",
             {
                 "HLC_CIRQUE_TRACKPAD": "1",
                 "TARGET": "halcyon_kyria_rev4_vial_hlc_cirque_trackpad"
@@ -27,7 +27,7 @@
         ],
         [
             "splitkb/halcyon/kyria/rev4",
-            "vial",
+            "vial_hlc",
             {
                 "HLC_NONE": "1",
                 "TARGET": "halcyon_kyria_rev4_vial_hlc"
