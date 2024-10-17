@@ -1,6 +1,6 @@
 {
     "keyboard": "splitkb/halcyon/kyria/rev4",
-    "keymap": "vial-halcyon",
+    "keymap": "vial-hlc",
     "version": 1,
     "layout": "LAYOUT_split_3x6_5_hlc",
     "layers": [
