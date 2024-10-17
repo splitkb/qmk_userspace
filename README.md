@@ -61,7 +61,7 @@ If you wish to point GitHub actions to a different repository, a different branc
 To override the `build` job, you can change the following parameters to use a different QMK repository or branch, this can be useful if you want to use a different QMK or vial branch for example:
 ```
     with:
-      qmk_repo: splitkb/vial_qmk
+      qmk_repo: splitkb/vial-qmk
       qmk_ref: halcyon-kyria
 ```
 
