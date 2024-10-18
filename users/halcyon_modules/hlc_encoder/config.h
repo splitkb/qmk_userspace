@@ -6,3 +6,4 @@
 #pragma once
 
 #define HLC_ENCODER
+#define HLC_ENCODER_BUTTON GP16
