@@ -2,67 +2,19 @@
     "userspace_version": "1.1",
     "build_targets": [
         [
-            "splitkb/halcyon/kyria/rev4",
-            "vial_hlc",
+            "splitkb/halcyon/elora/rev2",
+            "solaris_hlc",
             {
                 "HLC_TFT_DISPLAY": "1",
-                "TARGET": "splitkb_halcyon_kyria_rev4_vial_hlc_display"
+                "TARGET": "splitkb_halcyon_elora_rev2_solaris_hlc_display"
             }
         ],
         [
-            "splitkb/halcyon/kyria/rev4",
-            "vial_hlc",
+            "splitkb/halcyon/elora/rev2",
+            "solaris_hlc",
             {
                 "HLC_ENCODER": "1",
-                "TARGET": "splitkb_halcyon_kyria_rev4_vial_hlc_encoder"
-            }
-        ],
-        [
-            "splitkb/halcyon/kyria/rev4",
-            "vial_hlc",
-            {
-                "HLC_CIRQUE_TRACKPAD": "1",
-                "TARGET": "splitkb_halcyon_kyria_rev4_vial_hlc_cirque_trackpad"
-            }
-        ],
-        [
-            "splitkb/halcyon/kyria/rev4",
-            "vial_hlc",
-            {
-                "HLC_NONE": "1",
-                "TARGET": "splitkb_halcyon_kyria_rev4_vial_hlc"
-            }
-        ],
-        [
-            "splitkb/halcyon/elora/rev2",
-            "vial_hlc",
-            {
-                "HLC_TFT_DISPLAY": "1",
-                "TARGET": "splitkb_halcyon_elora_rev2_vial_hlc_display"
-            }
-        ],
-        [
-            "splitkb/halcyon/elora/rev2",
-            "vial_hlc",
-            {
-                "HLC_ENCODER": "1",
-                "TARGET": "splitkb_halcyon_elora_rev2_vial_hlc_encoder"
-            }
-        ],
-        [
-            "splitkb/halcyon/elora/rev2",
-            "vial_hlc",
-            {
-                "HLC_CIRQUE_TRACKPAD": "1",
-                "TARGET": "splitkb_halcyon_elora_rev2_vial_hlc_cirque_trackpad"
-            }
-        ],
-        [
-            "splitkb/halcyon/elora/rev2",
-            "vial_hlc",
-            {
-                "HLC_NONE": "1",
-                "TARGET": "splitkb_halcyon_elora_rev2_vial_hlc"
+                "TARGET": "splitkb_halcyon_elora_rev2_solaris_hlc_encoder"
             }
         ],
         [
@@ -98,6 +50,38 @@
             }
         ],
         [
+            "splitkb/halcyon/corne/rev2",
+            "default_hlc",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_corne_rev2_default_hlc_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/corne/rev2",
+            "default_hlc",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_corne_rev2_default_hlc_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/corne/rev2",
+            "default_hlc",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_corne_rev2_default_hlc_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/corne/rev2",
+            "default_hlc",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_corne_rev2_default_hlc"
+            }
+        ],
+        [
             "splitkb/halcyon/lily58/rev2",
             "vial_hlc",
             {
@@ -130,6 +114,38 @@
             }
         ],
         [
+            "splitkb/halcyon/lily58/rev2",
+            "default_hlc",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_lily58_rev2_default_hlc_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/lily58/rev2",
+            "default_hlc",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_lily58_rev2_default_hlc_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/lily58/rev2",
+            "default_hlc",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_lily58_rev2_default_hlc_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/lily58/rev2",
+            "default_hlc",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_lily58_rev2_default_hlc"
+            }
+        ],
+        [
             "splitkb/halcyon/ferris/rev1",
             "vial_hlc",
             {
@@ -159,6 +175,38 @@
             {
                 "HLC_NONE": "1",
                 "TARGET": "splitkb_halcyon_ferris_rev1_vial_hlc"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "default_hlc",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_default_hlc_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "default_hlc",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_default_hlc_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "default_hlc",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_default_hlc_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/ferris/rev1",
+            "default_hlc",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_ferris_rev1_default_hlc"
             }
         ]
     ]
