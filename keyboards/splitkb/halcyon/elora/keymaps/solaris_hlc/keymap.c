@@ -2,6 +2,9 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+
+#define RGB_MATRIX_ENABLE
+
 #include "quantum.h"
 
 enum layers {
