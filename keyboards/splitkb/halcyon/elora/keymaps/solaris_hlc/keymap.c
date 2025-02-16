@@ -283,7 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void module_post_init_user(void) {
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_GRADIENT);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_GRADIENT);
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
     rgb_matrix_sethsv_noeeprom(HSV_WHITE);
 }
