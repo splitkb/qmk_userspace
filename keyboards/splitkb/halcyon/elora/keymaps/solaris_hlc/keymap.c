@@ -107,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC  , KC_1  ,  KC_2   ,  KC_3  ,   KC_4 ,   KC_5 ,                                        KC_6 ,  KC_7 ,  KC_8 ,   KC_9 ,  KC_0 , KC_MINS,
      KC_TAB  , KC_Q  ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_LBRC,
      KC_BSPC , LGUI_A,  LGALT_S,  LSFT_D,  LCTL_F,   KC_G ,                                        KC_H , RCTL_J, RSFT_K,  RALT_L,RGUI_OE, KC_QUOT,
-     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  KC_NO , KC_NO ,     KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
+     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  KC_NO , ADJUST,     KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
                                   KC_NO , ALT_INS,    SYM , KC_ENT , KC_NO ,     KC_DEL , KC_SPC , NAV  , KC_MEH,KC_HYPR,
      KC_MUTE, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO
     ),
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC  , KC_1  ,  KC_2   ,  KC_3  ,   KC_4 ,   KC_5 ,                                        KC_6 ,  KC_7 ,  KC_8 ,   KC_9 ,  KC_0 , KC_MINS,
      KC_TAB  , KC_Q  ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_LBRC,
      KC_BSPC , LCTL_A,  LGALT_S,  LSFT_D,  LGUI_F,   KC_G ,                                        KC_H , RGUI_J, RSFT_K,  RALT_L,RCTL_OE, KC_QUOT,
-     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  KC_NO , KC_NO ,      KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
+     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  KC_NO , ADJUST,      KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
                                   KC_NO , ALT_INS,    SYM , KC_ENT , KC_NO ,      KC_DEL , KC_SPC , NAV  , KC_MEH,KC_HYPR,
      KC_MUTE, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO
     ),
@@ -245,9 +245,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_ADJUST] = LAYOUT_elora_hlc(
       _______, _______, _______, _______, _______, _______,                                    _______, _______, _______, _______,  _______, _______,
-      _______, _______, _______, WIN , _______, _______,                                    _______, _______, _______, _______,  _______, _______,
-      _______, _______, _______, MAC , _______, _______,                                    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI,  RGB_MOD, _______,
-      _______, _______, _______, _______, _______, _______,_______, _______, _______, _______, _______, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, _______,
+      _______, _______, _______, _______, _______, _______,                                    _______, _______, _______, _______,  _______, _______,
+      _______, UG_NEXT, UG_VALU, UG_HUEU, UG_SATU, UG_TOGG,                                    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI,  RGB_MOD, _______,
+      _______, UG_PREV, UG_VALD, UG_HUED, UG_SATD, _______,_______, _______, _______, _______, _______, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, _______,
                                  _______, _______, _______,_______, _______, _______, _______, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
@@ -283,8 +283,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void module_post_init_user(void) {
-    rgblight_toggle_noeeprom();
-    rgblight_mode_noeeprom(34);
-    rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
-    rgb_matrix_sethsv_noeeprom(HSV_WHITE);
+    // rgblight_mode_noeeprom(34);
+    // rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
+    // rgb_matrix_sethsv_noeeprom(HSV_WHITE);
 }
