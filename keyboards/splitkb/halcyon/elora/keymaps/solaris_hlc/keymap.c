@@ -160,7 +160,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_NAV] = LAYOUT_elora_hlc(
       QK_BOOT, _______, _______, _______, _______, KC_VOLU,                                     _______, _______, _______, _______, _______, _______,
-      _______, KC_HOME, KC_UP,   KC_END,, _______, KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
+      _______, KC_HOME, KC_UP,   KC_END , _______, KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
       _______, KC_LEFT, KC_DOWN, KC_RGHT, _______, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
       _______, _______, KC_INS , _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
                                     WIN ,    MAC , _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
