@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
+#include "quantum.h"
 
 enum layers {
     _WIN = 0,
@@ -283,7 +284,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void module_post_init_user(void) {
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_GRADIENT);
+    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_GRADIENT);
     rgb_matrix_mode_noeeprom(RGB_MATRIX_SOLID_COLOR);
     rgb_matrix_sethsv_noeeprom(HSV_WHITE);
 }
