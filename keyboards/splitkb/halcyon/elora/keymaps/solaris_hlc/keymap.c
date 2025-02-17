@@ -44,18 +44,18 @@ enum layers {
 // german symbols windows
 #define SYM_DEG  LSFT(KC_GRV) // °
 #define SYM_USCR LSFT(KC_SLASH) // _
-#define SYM_LSQB LALT(KC_8) // [
-#define SYM_RSQB LALT(KC_9) // ]
+#define SYM_LSQB RALT(KC_8) // [
+#define SYM_RSQB RALT(KC_9) // ]
 #define SYM_DACH KC_GRV // ^
-#define SYM_BSLS LALT(KC_MINUS) // BACKSLASH
+#define SYM_BSLS RALT(KC_MINUS) // BACKSLASH
 #define SYM_SLSH LSFT(KC_7) // /
-#define SYM_LCUB LALT(KC_7) // {
-#define SYM_RCUB LALT(KC_0) // }
+#define SYM_LCUB RALT(KC_7) // {
+#define SYM_RCUB RALT(KC_0) // }
 #define SYM_STAR LSFT(KC_RBRC) // *
 #define SYM_HASH KC_BSLS // #
 #define SYM_DOLR LSFT(KC_4) // $
-#define SYM_PIPE LALT(KC_NONUS_BACKSLASH) // |
-#define SYM_TLDE LALT(KC_RBRC) // ~
+#define SYM_PIPE RALT(KC_NONUS_BACKSLASH) // |
+#define SYM_TLDE RALT(KC_RBRC) // ~
 #define SYM_BTCK LSFT(KC_EQL) // `
 #define SYM_EXCL LSFT(KC_1) // !
 #define SYM_LPOB KC_NONUS_BACKSLASH // <
