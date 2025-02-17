@@ -287,18 +287,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        // Volume control
-        if (clockwise) {
-            tap_code(KC_A);
-        } else {
-            tap_code(KC_B);
-        }
-    } else if (index == 1) {
+    if (index == 3) {
       if (clockwise) {
-          tap_code(KC_A);
+          tap_code(KC_VOLU);
       } else {
-          tap_code(KC_B);
+          tap_code(KC_VOLD);
       }
     }
     return false;
