@@ -14,7 +14,7 @@ enum layers {
 
 enum {
     TD_F12_SFTF21,
-}
+};
 
 // Aliases for readability
 #define WIN   DF(_WIN)
