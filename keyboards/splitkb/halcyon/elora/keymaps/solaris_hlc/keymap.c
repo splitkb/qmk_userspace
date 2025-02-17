@@ -83,7 +83,7 @@ enum {
 
 tap_dance_action_t tap_dance_actions[] = {
     [TD_F12_SFTF21] = ACTION_TAP_DANCE_DOUBLE(KC_F12, LSFT(KC_F12));
-}
+};
 
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
