@@ -79,6 +79,8 @@ enum {
 
 // key combinations
 #define ALT_INS  LALT(KC_INS) // Alt + Ins (Rider)
+#define SFT_F12  LSFT(KC_F12) // Shift + F12 (Rider)
+// tap dances
 #define TD_F12S  TD(TD_F12_SFTF21)
 
 tap_dance_action_t tap_dance_actions[] = {
@@ -99,7 +101,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Bksp  |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  |   oe |   ae   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |  ____  |   Y  |   X  |   C  |   V  |   B  | F12TD|      |  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
+ * |  ____  |   Y  |   X  |   C  |   V  |   B  | F12TD|SFTF12|  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |      | ALT+ |  SYM | Enter|      |  | Del  | Space| AltGr|  MEH | HYPER|
  *                        |      | INS  |      |      |      |  |      |      |      |      |      |
@@ -112,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC  , KC_1  ,  KC_2   ,  KC_3  ,   KC_4 ,   KC_5 ,                                        KC_6 ,  KC_7 ,  KC_8 ,   KC_9 ,  KC_0 , KC_MINS,
      KC_TAB  , KC_Q  ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_LBRC,
      KC_BSPC , LGUI_A,  LGALT_S,  LSFT_D,  LCTL_F,   KC_G ,                                        KC_H , RCTL_J, RSFT_K,  RALT_L,RGUI_OE, KC_QUOT,
-     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , TD_F12S, ADJUST,     KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
+     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , TD_F12S,SFT_F12,     KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
                                   KC_NO , ALT_INS,    SYM , KC_ENT , KC_NO ,     KC_DEL , KC_SPC , NAV  , KC_MEH,KC_HYPR,
      KC_MUTE, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO
     ),
