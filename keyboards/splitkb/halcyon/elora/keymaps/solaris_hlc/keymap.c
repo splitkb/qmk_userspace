@@ -85,6 +85,8 @@ tap_dance_action_t tap_dance_actions[] = {
     [TD_F12_SFTF21] = ACTION_TAP_DANCE_DOUBLE(KC_F12, LCTL(KC_F12)),
 };
 
+bool isMac = false;
+
 // clang-format off
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
@@ -284,6 +286,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //     ),
 //
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    isMac = IS_LAYER_ON_STATE(state, _MAC);
+}
+
+// increase the tapping terms for the pinkys slightly,
+// those fingers are weak AF
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    if (isMac) {
+        switch (keycode) {
+            case SFT_T(KC_LCTL):
+                return TAPPING_TERM + 10;
+            case SFT_T(KC_RCTL):
+                return TAPPING_TERM + 10;
+            default:
+                return TAPPING_TERM;
+        }
+    } else {
+        switch (keycode) {
+            case SFT_T(KC_LGUI):
+                return TAPPING_TERM + 10;
+            case SFT_T(KC_RGUI):
+                return TAPPING_TERM + 10;
+            default:
+                return TAPPING_TERM;
+        }
+    }
+}
 
 #ifdef ENCODER_ENABLE
 bool encoder_update_user(uint8_t index, bool clockwise) {
