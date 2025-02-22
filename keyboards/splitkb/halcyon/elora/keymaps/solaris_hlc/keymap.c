@@ -59,7 +59,7 @@ enum {
 #define SYM_HASH KC_BSLS // #
 #define SYM_DOLR LSFT(KC_4) // $
 #define SYM_PIPE RALT(KC_NONUS_BACKSLASH) // |
-#define SYM_MPIP LSFT(KC_NONUS_BACKSLASH) // |
+#define SYM_MPIP LSFT(KC_GRAVE) // |
 #define SYM_TLDE RALT(KC_RBRC) // ~
 #define SYM_BTCK LSFT(KC_EQL) // `
 #define SYM_EXCL LSFT(KC_1) // !
