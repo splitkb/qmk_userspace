@@ -85,7 +85,7 @@ enum {
 #define TD_F12S  TD(TD_F12_SFTF21)
 
 tap_dance_action_t tap_dance_actions[] = {
-    [TD_F12_SFTF21] = ACTION_TAP_DANCE_DOUBLE(KC_F12, LCTL(KC_F12)),
+    [TD_F12_SFTF21] = ACTION_TAP_DANCE_DOUBLE(LCTL(KC_F12), KC_F12),
 };
 
 bool isMac = false;
@@ -154,11 +154,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-------------------------------------------.                              ,-------------------------------------------.
  * |  Reset |      |      |      |      | VolUp|                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |      | Home |   ↑  | End  | VolDn|                              | PgUp | Home |   ↑  | End  |      | Delete |
+ * |        |      | Home |Insert| End  | VolDn|                              | PgUp | Home |   ↑  | End  |      | Delete |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |        |      |  ←   |   ↓  |   →  |VolMut|                              | PgDn |  ←   |   ↓  |   →  |      |        |
+ * |        |  GUI |  ALT |  SFT |  CTL |VolMut|                              | PgDn |  ←   |   ↓  |   →  |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |        |      |      |Insert|      |      |      |ScLck |  |M Play|      | Pause|      |Insert|      |      | PrtSc  |
+ * |        |      |      |      |      |      |      |ScLck |  |M Play|      | Pause|      |Insert|      |      | PrtSc  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
  *                        |  WIN |  MAC |      |      |      |  |M Prev|M Next|      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
@@ -169,9 +169,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
     [_NAV] = LAYOUT_elora_hlc(
       QK_BOOT, _______, _______, _______, _______, KC_VOLU,                                     _______, _______, _______, _______, _______, _______,
-      _______, _______, KC_HOME, KC_UP,   KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
-      _______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-      _______, _______, _______, KC_INS , _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
+      _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
+      _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+      _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
                                     WIN ,    MAC , _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
