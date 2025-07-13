@@ -3,6 +3,8 @@
 
 #pragma once
 
+#include <stdbool.h>
+
 typedef enum module {
     none,
     hlc_none,
