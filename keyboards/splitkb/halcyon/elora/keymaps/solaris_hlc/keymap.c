@@ -18,14 +18,14 @@ enum {
 };
 
 // Aliases for readability
-#define WIN   DF(_WIN)
-#define MAC   DF(_MAC)
+#define WIN      DF(_WIN)
+#define MAC      DF(_MAC)
+#define GAMING   DF(_GAMING)
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
 #define SYMMAC   MO(_SYMMAC)
 #define ADJUST   MO(_ADJUST)
-#define GAMING   MO(_GAMING)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
