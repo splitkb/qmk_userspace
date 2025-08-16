@@ -6,11 +6,11 @@
 enum layers {
     _WIN = 0,
     _MAC,
+    _GAMING,
     _NAV,
     _SYM,
     _SYMMAC,
-    _ADJUST,
-    _GAMING
+    _ADJUST
 };
 
 enum {
