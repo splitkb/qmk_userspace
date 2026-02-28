@@ -6,11 +6,11 @@
 enum layers {
     _WIN = 0,
     _MAC,
-    _GAMING,
     _NAV,
     _SYM,
     _SYMMAC,
-    _ADJUST
+    _ADJUST,
+    _NAVMAC
 };
 
 enum {
@@ -20,7 +20,7 @@ enum {
 // Aliases for readability
 #define WIN      DF(_WIN)
 #define MAC      DF(_MAC)
-#define GAMING   DF(_GAMING)
+#define NAVMAC   DF(_NAVMAC)
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
@@ -102,11 +102,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Z  |   U  |   I  |   O  |   P  |   ue   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |  Bksp  |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  |   oe |   ae   |
+ * |  Bksp  |GUI/A |ALT/S |SFT/D |CTL/F |   G  |                              |   H  |CTL/J |SFT/K |ALT/L |GUI/oe|   ae   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |  ____  |   Y  |   X  |   C  |   V  |   B  | F12TD|SFTF12|  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      | ALT+ |  SYM | Enter|      |  | Del  | Space| AltGr|  MEH | HYPER|
+ *                        |      | ALT+ |  SYM | Enter|      |  | Del  | Space|  NAV |  MEH | HYPER|
  *                        |      | INS  |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  * ,-----------------------------------.                                              ,-----------------------------------.
@@ -130,11 +130,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
  * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Z  |   U  |   I  |   O  |   P  |   ue   |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |  Bksp  |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  |   oe |   ae   |
+ * |  Bksp  |CTL/A |ALT/S |SFT/D |GUI/F |   G  |                              |   H  |GUI/J |SFT/K |ALT/L |CTL/oe|   ae   |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |  ____  |   Y  |   X  |   C  |   V  |   B  |      |      |  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
+ * |  ____  |   Y  |   X  |   C  |   V  |   B  | F12TD|SFTF12|  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      | ALT+ |  SYM | Enter|      |  | Del  | Space| AltGr|  MEH | HYPER|
+ *                        |      | ALT+ |SYMMAC| Enter|      |  | Del  | Space|  NAV |  MEH | HYPER|
  *                        |      | INS  |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  * ,-----------------------------------.                                              ,-----------------------------------.
@@ -145,8 +145,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_ESC  , KC_1  ,  KC_2   ,  KC_3  ,   KC_4 ,   KC_5 ,                                        KC_6 ,  KC_7 ,  KC_8 ,   KC_9 ,  KC_0 , KC_MINS,
      KC_TAB  , KC_Q  ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_LBRC,
      KC_BSPC , LCTL_A,  LGALT_S,  LSFT_D,  LGUI_F,   KC_G ,                                        KC_H , RGUI_J, RSFT_K,  RALT_L,RCTL_OE, KC_QUOT,
-     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  KC_NO , ADJUST,      KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
-                                  KC_NO , ALT_INS, SYMMAC , KC_ENT , KC_NO ,      KC_DEL , KC_SPC , NAV  , KC_MEH,KC_HYPR,
+     KC_NO   , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B ,  TD_F12S , SFT_F12,      KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
+                                  KC_NO , ALT_INS, SYMMAC , KC_ENT , KC_NO ,      KC_DEL , KC_SPC , NAVMAC, KC_MEH,KC_HYPR,
      KC_MUTE, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO
     ),
 
@@ -162,7 +162,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
  * |        |      |      |      |      |      |      |ScLck |  |M Play|      | Pause|      |Insert|      |      | PrtSc  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |  WIN |  MAC |GAMING|      |      |  |M Prev|M Next|      |      |      |
+ *                        |  WIN |  MAC |      |      |      |  |M Prev|M Next|      |      |      |
  *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  * ,-----------------------------------.                                              ,-----------------------------------.
@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
       _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
       _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
-                                    WIN ,    MAC , GAMING , _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
+                                    WIN ,    MAC ,        , _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
 
@@ -265,31 +265,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
 /*
- * Base Layer: GAMING - no homerow mods
+ * Nav Layer Mac: Media, navigation
  *
  * ,-------------------------------------------.                              ,-------------------------------------------.
- * |  Esc   |   1  |   2  |   3  |   4  |   5  |                              |   6  |   7  |   8  |   9  |   0  |   sz   |
+ * |  Reset |      |      |      |      | VolUp|                              |      |      |      |      |      |        |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |  Tab   |   Q  |   W  |   E  |   R  |   T  |                              |   Z  |   U  |   I  |   O  |   P  |   ue   |
+ * |        |      | Home |Insert| End  | VolDn|                              | PgUp | Home |   ↑  | End  |      | Delete |
  * |--------+------+------+------+------+------|                              |------+------+------+------+------+--------|
- * |  Bksp  |   A  |   S  |   D  |   F  |   G  |                              |   H  |   J  |   K  |   L  |   oe |   ae   |
+ * |        |  GUI |  ALT |  SFT |  CTL |VolMut|                              | PgDn |  ←   |   ↓  |   →  |      |        |
  * |--------+------+------+------+------+------+-------------.  ,-------------+------+------+------+------+------+--------|
- * |  LSHFT |   Y  |   X  |   C  |   V  |   B  | F12TD|SFTF12|  |      |      |   N  |   M  |   ,  |   .  |   -  |  ____  |
+ * |        |      |      |      |      |      |      |ScLck |  |M Play|      | Pause|      |Insert|      |      | PrtSc  |
  * `----------------------+------+------+------+------+------|  |------+------+------+------+------+----------------------'
- *                        |      | ALT+ | LGUI | Enter| LALT |  | Del  | Space| AltGr|  MEH | HYPER|
- *                        |      | INS  |      |      |      |  |      |      |      |      |      |
+ *                        |  WIN |  MAC |      |      |      |  |M Prev|M Next|      |      |      |
+ *                        |      |      |      |      |      |  |      |      |      |      |      |
  *                        `----------------------------------'  `----------------------------------'
  * ,-----------------------------------.                                              ,-----------------------------------.
- * | MUTE | ____ | _____ | ____ | ____ |                                              | MUTE | ____ | _____ | ____ | ____ |
+ * |      |      |       |      |      |                                              |      |      |       |      |      |
  * `-----------------------------------'                                              `-----------------------------------'
  */
-    [_GAMING] = LAYOUT_elora_hlc(
-     KC_ESC  , KC_1  ,  KC_2   ,  KC_3  ,   KC_4 ,   KC_5 ,                                        KC_6 ,  KC_7 ,  KC_8 ,   KC_9 ,  KC_0 , KC_MINS,
-     KC_TAB  , KC_Q  ,  KC_W   ,  KC_E  ,   KC_R ,   KC_T ,                                        KC_Y ,  KC_U ,  KC_I ,   KC_O ,  KC_P , KC_LBRC,
-     KC_BSPC , KC_A  ,  KC_S   ,  KC_D  ,   KC_F ,   KC_G ,                                        KC_H ,  KC_J ,  KC_K ,   KC_L ,KC_SCLN, KC_QUOT,
-     KC_LSFT , KC_Z  ,  KC_X   ,  KC_C  ,   KC_V ,   KC_B , TD_F12S,SFT_F12,     KC_NO  , KC_NO  , KC_N ,  KC_M ,KC_COMM, KC_DOT ,KC_SLSH, KC_NO,
-                                  KC_NO , KC_LGUI,    SYM , KC_ENT , KC_LALT,     KC_DEL , KC_SPC , NAV ,KC_RALT,KC_HYPR,
-     KC_MUTE, KC_NO,  KC_NO, KC_NO, KC_NO,                                                                KC_MUTE, KC_NO, KC_NO, KC_NO, KC_NO
+    [_NAVMAC] = LAYOUT_elora_hlc(
+      QK_BOOT, _______, _______, _______, _______, KC_VOLU,                                     _______, _______, _______, _______, _______, _______,
+      _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
+      _______, KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
+      _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
+                                    WIN ,    MAC ,        , _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
+     _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
 // /*
 //  * Layer template
