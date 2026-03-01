@@ -174,7 +174,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
       _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
       _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
-                                    WIN ,    MAC ,        , _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
+                                    WIN ,    MAC , _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
 
@@ -234,7 +234,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
       ),
 
-      
+
 
 /*
  * Adjust Layer: Default layer settings, RGB
@@ -258,8 +258,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_ADJUST] = LAYOUT_elora_hlc(
       _______, _______, _______, _______, _______, _______,                                    _______, _______, _______, _______,  _______, _______,
       _______, _______, _______, _______, _______, _______,                                    _______, _______, _______, _______,  _______, _______,
-      _______, UG_NEXT, UG_VALU, UG_HUEU, UG_SATU, UG_TOGG,                                    RGB_TOG, RGB_SAI, RGB_HUI, RGB_VAI,  RGB_MOD, _______,
-      _______, UG_PREV, UG_VALD, UG_HUED, UG_SATD, _______,_______, _______, _______, _______, _______, RGB_SAD, RGB_HUD, RGB_VAD, RGB_RMOD, _______,
+      _______, UG_NEXT, UG_VALU, UG_HUEU, UG_SATU, UG_TOGG,                                    RM_TOGG, RM_SATU, RM_HUEU, RM_VALU,  RM_NEXT, _______,
+      _______, UG_PREV, UG_VALD, UG_HUED, UG_SATD, _______,_______, _______, _______, _______, _______, RM_SATD, RM_HUED, RM_VALD, RM_PREV, _______,
                                  _______, _______, _______,_______, _______, _______, _______, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
@@ -288,9 +288,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
       _______, KC_LCTL, KC_LALT, KC_LSFT, KC_LGUI, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
       _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
-                                    WIN ,    MAC ,        , _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
+                                    WIN ,    MAC , _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
-    )
+    ),
 // /*
 //  * Layer template
 //  *
