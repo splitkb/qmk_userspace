@@ -173,7 +173,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       QK_BOOT, _______, _______, _______, _______, KC_VOLU,                                     _______, _______, _______, _______, _______, _______,
       _______, _______, KC_HOME, KC_INS , KC_END , KC_VOLD,                                     KC_PGUP, KC_HOME, KC_UP,   KC_END,  _______, KC_DEL ,
       _______, KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_MUTE,                                     KC_PGDN, KC_LEFT, KC_DOWN, KC_RGHT, _______, _______,
-      _______, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
+       ADJUST, _______, _______, _______, _______, _______, _______, KC_SCRL, KC_MPLY, _______,KC_PAUSE, _______, KC_INS , _______, _______, KC_PSCR,
                                     WIN ,    MAC , _______, _______, _______, KC_MPRV, KC_MNXT, _______, _______, _______,
      _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
     ),
