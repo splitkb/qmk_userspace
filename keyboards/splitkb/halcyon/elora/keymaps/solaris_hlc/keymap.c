@@ -20,12 +20,12 @@ enum {
 // Aliases for readability
 #define WIN      DF(_WIN)
 #define MAC      DF(_MAC)
-#define NAVMAC   DF(_NAVMAC)
 
 #define SYM      MO(_SYM)
 #define NAV      MO(_NAV)
 #define SYMMAC   MO(_SYMMAC)
 #define ADJUST   MO(_ADJUST)
+#define NAVMAC   MO(_NAVMAC)
 
 #define CTL_ESC  MT(MOD_LCTL, KC_ESC)
 #define CTL_QUOT MT(MOD_RCTL, KC_QUOTE)
