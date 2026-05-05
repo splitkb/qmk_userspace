@@ -229,7 +229,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,                                       KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, KC_F11 ,
        _______,SYM_RPOB,SYM_USCR,SYM_LSQB,SYM_RSQB,SYM_LPOB,                                    SYM_EXCL,SYM_DACH,SYM_DEG, SYM_EQL, SYM_AMP, KC_F12 ,
        _______,SYM_BSLS,SYM_SLSH,SYM_LCUB,SYM_RCUB,SYM_STAR,                                    SYM_QSTN,SYM_LBRK,SYM_RBRK,SYM_MINS,SYM_COLN, _______,
-       _______,SYM_HASH,SYM_DOLR,SYM_MPIP,SYM_TLDE,SYM_BTCK, KC_CAPS, _______, _______, _______,SYM_PLUS,SYM_PERC,SYM_DQOT,SYM_SQOT,SYM_SCLN, _______,
+       _______,SYM_HASH,SYM_DOLR,SYM_PIPE,SYM_TLDE,SYM_BTCK, KC_CAPS, _______, _______, _______,SYM_PLUS,SYM_PERC,SYM_DQOT,SYM_SQOT,SYM_SCLN, _______,
                                    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
        _______, _______,  _______, _______, _______,                                                       _______, _______, _______, _______, _______
       ),
