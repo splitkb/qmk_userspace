@@ -5,13 +5,7 @@
 
 #include QMK_KEYBOARD_H
 
-typedef enum module {
-    none,
-    hlc_none,
-    hlc_cirque_trackpad,
-    hlc_encoder,
-    hlc_tft_display
-} module_t;
+typedef enum module { none, hlc_none, hlc_cirque_trackpad, hlc_encoder, hlc_tft_display } module_t;
 
 extern module_t module_master;
 

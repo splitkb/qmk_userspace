@@ -34,16 +34,16 @@ __attribute__((weak)) bool display_module_housekeeping_task_user(bool second_dis
 module_t module_master;
 module_t module;
 #ifdef HLC_NONE
-    module_t module = hlc_none;
+module_t module = hlc_none;
 #endif
 #ifdef HLC_CIRQUE_TRACKPAD
-    module_t module = hlc_cirque_trackpad;
+module_t module = hlc_cirque_trackpad;
 #endif
 #ifdef HLC_ENCODER
-    module_t module = hlc_encoder;
+module_t module = hlc_encoder;
 #endif
 #ifdef HLC_TFT_DISPLAY
-    module_t module = hlc_tft_display;
+module_t module = hlc_tft_display;
 #endif
 
 bool backlight_off = false;
@@ -63,7 +63,7 @@ void backlight_suspend(void) {
     backlight_disable();
 }
 
-void module_sync_slave_handler(uint8_t initiator2target_buffer_size, const void* initiator2target_buffer, uint8_t target2initiator_buffer_size, void* target2initiator_buffer) {
+void module_sync_slave_handler(uint8_t initiator2target_buffer_size, const void *initiator2target_buffer, uint8_t target2initiator_buffer_size, void *target2initiator_buffer) {
     if (initiator2target_buffer_size == sizeof(module)) {
         memcpy(&module_master, initiator2target_buffer, sizeof(module_master));
     }
@@ -102,7 +102,7 @@ void housekeeping_task_kb(void) {
         static bool synced = false;
 
         if (!synced) {
-            if(is_transport_connected()) {
+            if (is_transport_connected()) {
                 transaction_rpc_send(MODULE_SYNC, sizeof(module), &module); // Sync to slave
                 wait_ms(10);
                 // Good moment to make sure the backlight wakes up after boot for both halves
@@ -119,13 +119,15 @@ void housekeeping_task_kb(void) {
     }
 
     // Backlight feature
-    if (last_input_activity_elapsed() <= HLC_BACKLIGHT_TIMEOUT) {
-        if (backlight_off) {
-            backlight_wakeup();
-        }
-    } else {
-        if (!backlight_off) {
-            backlight_suspend();
+    if (HLC_BACKLIGHT_TIMEOUT != 0) {
+        if (last_input_activity_elapsed() <= HLC_BACKLIGHT_TIMEOUT) {
+            if (backlight_off) {
+                backlight_wakeup();
+            }
+        } else {
+            if (!backlight_off) {
+                backlight_suspend();
+            }
         }
     }
 
@@ -137,11 +139,11 @@ void housekeeping_task_kb(void) {
 report_mouse_t pointing_device_task_combined_kb(report_mouse_t left_report, report_mouse_t right_report) {
     // Only runs on master
     // Fixes the following bug: If master is right and master is NOT a cirque trackpad, the inputs would be inverted.
-    if(module != hlc_cirque_trackpad && !is_keyboard_left()) {
+    if (module != hlc_cirque_trackpad && !is_keyboard_left()) {
         mouse_xy_report_t x = left_report.x;
         mouse_xy_report_t y = left_report.y;
-        left_report.x = -x;
-        left_report.y = -y;
+        left_report.x       = -x;
+        left_report.y       = -y;
     }
     return pointing_device_task_combined_user(left_report, right_report);
 }

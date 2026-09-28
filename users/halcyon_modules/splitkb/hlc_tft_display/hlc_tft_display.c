@@ -23,12 +23,12 @@
 #include "graphics/numbers/9.qgf.h"
 #include "graphics/numbers/undef.qgf.h"
 
-static const char *caps =        "Caps";
-static const char *num =         "Num";
-static const char *scroll =      "Scroll";
+static const char *caps   = "Caps";
+static const char *num    = "Num";
+static const char *scroll = "Scroll";
 
-static painter_font_handle_t Retron27;
-static painter_font_handle_t Retron27_underline;
+static painter_font_handle_t  Retron27;
+static painter_font_handle_t  Retron27_underline;
 static painter_image_handle_t layer_number;
 
 static uint8_t lcd_surface_fb[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(135, 240, 16)];
@@ -38,19 +38,19 @@ int color_value = 0;
 painter_device_t lcd;
 painter_device_t lcd_surface;
 
-led_t last_led_usb_state = {0};
-layer_state_t last_layer_state = {0};
+led_t         last_led_usb_state = {0};
+layer_state_t last_layer_state   = {0};
 
 #define GRID_WIDTH 27
 #define GRID_HEIGHT 48
-#define CELL_SIZE 4  // Cell size excluding outline
+#define CELL_SIZE 4 // Cell size excluding outline
 #define OUTLINE_SIZE 1
 
 // Define the probability factor for initial alive cells
-#define INITIAL_ALIVE_PROBABILITY 0.2  // 20% chance of being alive
+#define INITIAL_ALIVE_PROBABILITY 0.2 // 20% chance of being alive
 
-bool grid[GRID_HEIGHT][GRID_WIDTH];  // Current state
-bool new_grid[GRID_HEIGHT][GRID_WIDTH];  // Next state
+bool grid[GRID_HEIGHT][GRID_WIDTH];         // Current state
+bool new_grid[GRID_HEIGHT][GRID_WIDTH];     // Next state
 bool changed_grid[GRID_HEIGHT][GRID_WIDTH]; // Tracks changed cells
 
 uint32_t get_random_32bit(void) {
@@ -66,23 +66,23 @@ void init_grid() {
     // Initialize grid with alive cells
     for (int y = 0; y < GRID_HEIGHT; y++) {
         for (int x = 0; x < GRID_WIDTH; x++) {
-            grid[y][x] = (rand() < INITIAL_ALIVE_PROBABILITY * RAND_MAX);  // Use probability factor
-            changed_grid[y][x] = true;      // Mark all as changed initially
+            grid[y][x]         = (rand() < INITIAL_ALIVE_PROBABILITY * RAND_MAX); // Use probability factor
+            changed_grid[y][x] = true;                                            // Mark all as changed initially
         }
     }
 }
 
 void draw_grid() {
-    uint8_t hue = 0;  // Hue for alive cells
-    uint8_t sat = 0;  // Saturation for alive cells
-    uint8_t val_dead = 0;  // Brightness for dead cells
+    uint8_t hue      = 0; // Hue for alive cells
+    uint8_t sat      = 0; // Saturation for alive cells
+    uint8_t val_dead = 0; // Brightness for dead cells
 
     for (int y = 0; y < GRID_HEIGHT; y++) {
         for (int x = 0; x < GRID_WIDTH; x++) {
             if (changed_grid[y][x]) { // Only update changed cells
-                uint16_t left = x * (CELL_SIZE + OUTLINE_SIZE);
-                uint16_t top = y * (CELL_SIZE + OUTLINE_SIZE);
-                uint16_t right = left + CELL_SIZE + OUTLINE_SIZE;
+                uint16_t left   = x * (CELL_SIZE + OUTLINE_SIZE);
+                uint16_t top    = y * (CELL_SIZE + OUTLINE_SIZE);
+                uint16_t right  = left + CELL_SIZE + OUTLINE_SIZE;
                 uint16_t bottom = top + CELL_SIZE + OUTLINE_SIZE;
 
                 // Draw the outline
@@ -91,32 +91,32 @@ void draw_grid() {
                 // Draw the filled cell inside the outline if it's alive
                 if (grid[y][x]) {
                     switch (color_value) {
-                    case 0:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_0, true);
-                        break;
-                    case 1:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_1, true);
-                        break;
-                    case 2:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_2, true);
-                        break;
-                    case 3:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_3, true);
-                        break;
-                    case 4:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_4, true);
-                        break;
-                    case 5:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_5, true);
-                        break;
-                    case 6:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_6, true);
-                        break;
-                    case 7:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_7, true);
-                        break;
-                    default:
-                        qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_UNDEF, true);
+                        case 0:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_0, true);
+                            break;
+                        case 1:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_1, true);
+                            break;
+                        case 2:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_2, true);
+                            break;
+                        case 3:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_3, true);
+                            break;
+                        case 4:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_4, true);
+                            break;
+                        case 5:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_5, true);
+                            break;
+                        case 6:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_6, true);
+                            break;
+                        case 7:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_7, true);
+                            break;
+                        default:
+                            qp_rect(lcd_surface, left + OUTLINE_SIZE, top + OUTLINE_SIZE, right - OUTLINE_SIZE, bottom - OUTLINE_SIZE, HSV_LAYER_UNDEF, true);
                     }
                 }
             }
@@ -132,7 +132,7 @@ void update_grid() {
             // Count alive neighbors
             for (int dy = -1; dy <= 1; dy++) {
                 for (int dx = -1; dx <= 1; dx++) {
-                    if (dy == 0 && dx == 0) continue;  // Skip the current cell
+                    if (dy == 0 && dx == 0) continue; // Skip the current cell
                     int ny = y + dy;
                     int nx = x + dx;
                     if (ny >= 0 && ny < GRID_HEIGHT && nx >= 0 && nx < GRID_WIDTH) {
@@ -165,81 +165,81 @@ void update_grid() {
 
 // Function to add a cluster of cells at a random position
 void add_cell_cluster() {
-    int cluster_size = 3;  // Size of the cluster (3x3)
-    int x = rand() % (GRID_WIDTH - cluster_size);
-    int y = rand() % (GRID_HEIGHT - cluster_size);
+    int cluster_size = 3; // Size of the cluster (3x3)
+    int x            = rand() % (GRID_WIDTH - cluster_size);
+    int y            = rand() % (GRID_HEIGHT - cluster_size);
 
     for (int dy = 0; dy < cluster_size; dy++) {
         for (int dx = 0; dx < cluster_size; dx++) {
-            bool is_alive = rand() % 2; // Randomly choose between 0 and 1
-            grid[y + dy][x + dx] = is_alive;  // Set the cell to be alive
-            changed_grid[y + dy][x + dx] = true; // Mark the cell as changed
+            bool is_alive                = rand() % 2; // Randomly choose between 0 and 1
+            grid[y + dy][x + dx]         = is_alive;   // Set the cell to be alive
+            changed_grid[y + dy][x + dx] = true;       // Mark the cell as changed
         }
     }
 }
 
 void update_display(void) {
-    static bool first_run_led = false;
+    static bool first_run_led   = false;
     static bool first_run_layer = false;
 
-    if( first_run_layer == false) {
+    if (first_run_layer == false) {
         // Load fonts
-        Retron27 = qp_load_font_mem(font_Retron2000_27);
+        Retron27           = qp_load_font_mem(font_Retron2000_27);
         Retron27_underline = qp_load_font_mem(font_Retron2000_underline_27);
     }
 
-    if(last_led_usb_state.raw != host_keyboard_led_state().raw || first_run_led == false) {
+    if (last_led_usb_state.raw != host_keyboard_led_state().raw || first_run_led == false) {
         led_t led_usb_state = host_keyboard_led_state();
 
-        led_usb_state.caps_lock   ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 3 - 15, Retron27_underline, caps,   HSV_CAPS_ON,   HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 3 - 15, Retron27, caps,   HSV_CAPS_OFF,   HSV_BLACK);
-        led_usb_state.num_lock    ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 2 - 10, Retron27_underline, num,    HSV_NUM_ON,    HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 2 - 10, Retron27, num,    HSV_NUM_OFF,    HSV_BLACK);
-        led_usb_state.scroll_lock ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height - 5,      Retron27_underline, scroll, HSV_SCROLL_ON, HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height - 5,      Retron27, scroll, HSV_SCROLL_OFF, HSV_BLACK);
+        led_usb_state.caps_lock ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 3 - 15, Retron27_underline, caps, HSV_CAPS_ON, HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 3 - 15, Retron27, caps, HSV_CAPS_OFF, HSV_BLACK);
+        led_usb_state.num_lock ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 2 - 10, Retron27_underline, num, HSV_NUM_ON, HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height * 2 - 10, Retron27, num, HSV_NUM_OFF, HSV_BLACK);
+        led_usb_state.scroll_lock ? qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height - 5, Retron27_underline, scroll, HSV_SCROLL_ON, HSV_BLACK) : qp_drawtext_recolor(lcd_surface, 5, LCD_HEIGHT - Retron27->line_height - 5, Retron27, scroll, HSV_SCROLL_OFF, HSV_BLACK);
 
         last_led_usb_state = led_usb_state;
-        first_run_led = true;
+        first_run_led      = true;
     }
 
-    if(last_layer_state != layer_state || first_run_layer == false) {
-        switch (get_highest_layer(layer_state|default_layer_state)) {
-        case 0:
-            layer_number = qp_load_image_mem(gfx_0);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_0, HSV_BLACK);
-            break;
-        case 1:
-            layer_number = qp_load_image_mem(gfx_1);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_1, HSV_BLACK);
-            break;
-        case 2:
-            layer_number = qp_load_image_mem(gfx_2);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_2, HSV_BLACK);
-            break;
-        case 3:
-            layer_number = qp_load_image_mem(gfx_3);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_3, HSV_BLACK);
-            break;
-        case 4:
-            layer_number = qp_load_image_mem(gfx_4);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_4, HSV_BLACK);
-            break;
-        case 5:
-            layer_number = qp_load_image_mem(gfx_5);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_5, HSV_BLACK);
-            break;
-        case 6:
-            layer_number = qp_load_image_mem(gfx_6);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_6, HSV_BLACK);
-            break;
-        case 7:
-            layer_number = qp_load_image_mem(gfx_7);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_7, HSV_BLACK);
-            break;
-        default:
-            layer_number = qp_load_image_mem(gfx_undef);
-            qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_UNDEF, HSV_BLACK);
+    if (last_layer_state != layer_state || first_run_layer == false) {
+        switch (get_highest_layer(layer_state | default_layer_state)) {
+            case 0:
+                layer_number = qp_load_image_mem(gfx_0);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_0, HSV_BLACK);
+                break;
+            case 1:
+                layer_number = qp_load_image_mem(gfx_1);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_1, HSV_BLACK);
+                break;
+            case 2:
+                layer_number = qp_load_image_mem(gfx_2);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_2, HSV_BLACK);
+                break;
+            case 3:
+                layer_number = qp_load_image_mem(gfx_3);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_3, HSV_BLACK);
+                break;
+            case 4:
+                layer_number = qp_load_image_mem(gfx_4);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_4, HSV_BLACK);
+                break;
+            case 5:
+                layer_number = qp_load_image_mem(gfx_5);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_5, HSV_BLACK);
+                break;
+            case 6:
+                layer_number = qp_load_image_mem(gfx_6);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_6, HSV_BLACK);
+                break;
+            case 7:
+                layer_number = qp_load_image_mem(gfx_7);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_7, HSV_BLACK);
+                break;
+            default:
+                layer_number = qp_load_image_mem(gfx_undef);
+                qp_drawimage_recolor(lcd_surface, 5, 5, layer_number, HSV_LAYER_UNDEF, HSV_BLACK);
         }
         qp_close_image(layer_number);
         last_layer_state = layer_state;
-        first_run_layer = true;
+        first_run_layer  = true;
     }
 }
 
@@ -259,7 +259,7 @@ bool module_post_init_kb(void) {
     backlight_enable();
 
     // Make the devices
-    lcd = qp_st7789_make_spi_device(LCD_WIDTH, LCD_HEIGHT, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, LCD_SPI_DIVISOR, LCD_SPI_MODE);
+    lcd         = qp_st7789_make_spi_device(LCD_WIDTH, LCD_HEIGHT, LCD_CS_PIN, LCD_DC_PIN, LCD_RST_PIN, LCD_SPI_DIVISOR, LCD_SPI_MODE);
     lcd_surface = qp_make_rgb565_surface(LCD_WIDTH, LCD_HEIGHT, lcd_surface_fb);
 
     // Initialise the LCD
@@ -276,24 +276,28 @@ bool module_post_init_kb(void) {
     qp_surface_draw(lcd_surface, lcd, 0, 0, 0);
     qp_flush(lcd);
 
-    if(!module_post_init_user()) { return false; }
+    if (!module_post_init_user()) {
+        return false;
+    }
 
     return true;
 }
 
 // Called from halcyon.c
 bool display_module_housekeeping_task_kb(bool second_display) {
-    if(!display_module_housekeeping_task_user(second_display)) { return false; }
+    if (!display_module_housekeeping_task_user(second_display)) {
+        return false;
+    }
 
-    if(second_display) {
-        static uint32_t last_draw = 0;
-        static bool second_display_set = false;
+    if (second_display) {
+        static uint32_t last_draw                     = 0;
+        static bool     second_display_set            = false;
         static uint32_t previous_matrix_activity_time = 0;
 
-        if(!second_display_set) {
+        if (!second_display_set) {
             srand(get_random_32bit());
             init_grid();
-            color_value = rand() % 8;
+            color_value        = rand() % 8;
             second_display_set = true;
         }
 
@@ -312,7 +316,7 @@ bool display_module_housekeeping_task_kb(bool second_display) {
     }
 
     // Update display information (layers, numlock, etc.)
-    if(!second_display) {
+    if (!second_display) {
         update_display();
     }
 

@@ -11,13 +11,14 @@
 #endif
 
 #ifndef HALCYON_LEGACY
-#   define VIRTUAL_COL_START (MATRIX_COLS - 5)
+#    define VIRTUAL_COL_START (MATRIX_COLS - 5)
 #endif // HALCYON_LEGACY
 
 extern matrix_row_t matrix[MATRIX_ROWS];
 
 #ifndef BUTTON_PINS
-#   define BUTTON_PINS (const pin_t[]){ }
+#    define BUTTON_PINS \
+        (const pin_t[]) {}
 #endif
 
 #define NUM_BUTTON_PINS (sizeof(BUTTON_PINS) / sizeof(BUTTON_PINS[0]))
@@ -26,7 +27,7 @@ extern matrix_row_t matrix[MATRIX_ROWS];
 static void scan_legacy_buttons(void) {
     size_t num_pins = NUM_BUTTON_PINS;
     if (num_pins == 0) return;
-    
+
     // Legacy layouts expect the button on the extra matrix row, zero-indexed.
     uint8_t row = is_keyboard_left() ? (ROWS_PER_HAND - 1) : (MATRIX_ROWS - 1);
 
@@ -56,7 +57,7 @@ static void scan_buttons(void) {
 #endif
 
 void matrix_init_kb(void) {
-    size_t num_pins = sizeof(BUTTON_PINS)/sizeof(BUTTON_PINS[0]);
+    size_t num_pins = sizeof(BUTTON_PINS) / sizeof(BUTTON_PINS[0]);
 
     for (uint8_t i = 0; i < num_pins; i++) {
         gpio_set_pin_input_high(BUTTON_PINS[i]);
@@ -86,7 +87,7 @@ void matrix_slave_scan_kb(void) {
 }
 
 #ifndef HALCYON_LEGACY
-#if (defined(HALCYON_BUTTONS_ENABLE) || !defined(VIAL_ENABLE))
+#    if (defined(HALCYON_BUTTONS_ENABLE) || !defined(VIAL_ENABLE))
 __attribute__((weak)) const uint16_t left_halcyon_buttons[10][5];
 __attribute__((weak)) const uint16_t right_halcyon_buttons[10][5];
 
@@ -103,7 +104,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 uint16_t code = KC_TRNS;
 
                 const uint16_t (*table)[5] = record->event.key.row < ROWS_PER_HAND ? left_halcyon_buttons : right_halcyon_buttons;
-                code = table[l][btn];
+                code                       = table[l][btn];
 
                 if (code != KC_TRNS) {
                     record->event.pressed ? register_code16(code) : unregister_code16(code);
@@ -116,5 +117,5 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
 
     return process_record_user(keycode, record);
 }
-#endif // HALCYON_BUTTONS_ENABLE || VIAL_ENABLE
-#endif // HALCYON_LEGACY
+#    endif // HALCYON_BUTTONS_ENABLE || VIAL_ENABLE
+#endif     // HALCYON_LEGACY

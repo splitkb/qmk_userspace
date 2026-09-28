@@ -22,7 +22,7 @@ bool module_post_init_user(void) {
 // This function runs after every matrix scan
 bool display_module_housekeeping_task_user(bool second_display) {
     // Create checks to see if the displays are set. We don't need to keep updating the display with the same image so this will save some CPU time.
-    static bool display_set = false;
+    static bool display_set        = false;
     static bool second_display_set = false;
 
     // When the display isn't set, do the following
@@ -37,7 +37,7 @@ bool display_module_housekeeping_task_user(bool second_display) {
 
             // Make sure to not run this again.
             display_set = true;
-        // If it's the secundairy display
+            // If it's the secondary display
         } else {
             // Create text to write
             static const char *text = "This is a second user display!";
@@ -49,14 +49,14 @@ bool display_module_housekeeping_task_user(bool second_display) {
             qp_drawtext_recolor(lcd_surface, (LCD_WIDTH - width), (LCD_HEIGHT - thintel->line_height), thintel, text, HSV_WHITE, HSV_BLACK);
 
             // Make sure to not run this again.
-            display_set = true;
+            display_set        = true;
             second_display_set = true;
         }
     }
 
     // Make sure that the second display loads correctly, sometimes it takes a little while for the keyboard to know it has a second display.
     // So we reset the state and make it run again until the secondary display is drawn correctly
-    if(second_display && !second_display_set) {
+    if (second_display && !second_display_set) {
         display_set = false;
     }
 
