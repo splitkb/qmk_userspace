@@ -31,7 +31,8 @@ static painter_font_handle_t  Retron27;
 static painter_font_handle_t  Retron27_underline;
 static painter_image_handle_t layer_number;
 
-static uint8_t lcd_surface_fb[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(135, 240, 16)];
+// RGB565 surface writes 16-bit pixels, an odd buffer address hard faults the RP2040
+static uint8_t lcd_surface_fb[SURFACE_REQUIRED_BUFFER_BYTE_SIZE(135, 240, 16)] __attribute__((aligned(4)));
 
 int color_value = 0;
 
