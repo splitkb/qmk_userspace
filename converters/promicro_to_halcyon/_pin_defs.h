@@ -9,7 +9,7 @@
 //      GND
 //      GND
 #define D1 25U
-#define D0 10U
+#define D0 20U
 #define D4 19U
 #define C6 24U
 #define D7 23U

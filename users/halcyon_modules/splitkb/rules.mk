@@ -15,6 +15,10 @@ SRC += $(USER_PATH)/splitkb/halcyon_buttons.c
 HALCONFDIR += $(USER_PATH)/splitkb/halconf.h
 POST_CONFIG_H += $(USER_PATH)/splitkb/config.h
 
+ifdef HLC_NONE
+  include $(USER_PATH)/splitkb/hlc_none/rules.mk
+endif
+
 ifeq ($(filter 1, $(HLC_ENCODER) $(HLC_ENCODER_REV2)), 1)
   include $(USER_PATH)/splitkb/hlc_encoder/rules.mk
 endif

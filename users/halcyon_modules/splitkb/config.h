@@ -62,12 +62,14 @@
 // GPIO2 = 26
 // CS = 13
 
-#undef I2C_DRIVER
-#undef I2C1_SDA_PIN
-#undef I2C1_SCL_PIN
-#define I2C_DRIVER I2C0
-#define I2C1_SDA_PIN 16
-#define I2C1_SCL_PIN 17
+#ifndef HLC_NONE
+#    undef I2C_DRIVER
+#    undef I2C1_SDA_PIN
+#    undef I2C1_SCL_PIN
+#    define I2C_DRIVER I2C0
+#    define I2C1_SDA_PIN 16
+#    define I2C1_SCL_PIN 17
+#endif
 
 #undef SPI_DRIVER
 #undef SPI_SCK_PIN
