@@ -12,7 +12,7 @@ jobs:
     with:
       qmk_repo: vial-kb/vial-qmk
       qmk_ref: vial
-      preparation_command: 'ln -s "$GITHUB_WORKSPACE/converters/promicro_to_halcyon/" qmk_firmware/platforms/chibios/converters/'
+      preparation_command: 'ln -s "$GITHUB_WORKSPACE/converters/promicro_to_halcyon/" qmk_firmware/platforms/chibios/converters/ && ln -s "$GITHUB_WORKSPACE/keyboards/splitkb/halcyon/sofle_v2/" qmk_firmware/keyboards/splitkb/halcyon/'
   publish:
     name: 'QMK Userspace Publish'
     uses: qmk/.github/.github/workflows/qmk_userspace_publish.yml@main

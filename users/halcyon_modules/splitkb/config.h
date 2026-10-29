@@ -125,8 +125,13 @@
 
 // Lily58
 #ifdef KEYBOARD_splitkb_halcyon_lily58_rev2
-#    define ENCODER_A_PINS {GP24, HLC_ENCODER_A}
-#    define ENCODER_B_PINS {GP23, HLC_ENCODER_B}
+#    define ENCODER_A_PINS {GP23, HLC_ENCODER_A}
+#    define ENCODER_B_PINS {GP22, HLC_ENCODER_B}
+#endif
+
+#ifdef KEYBOARD_splitkb_halcyon_sofle_v2_rev2
+#    define ENCODER_A_PINS {GP23, HLC_ENCODER_A}
+#    define ENCODER_B_PINS {GP22, HLC_ENCODER_B}
 #endif
 
 #ifdef KEYBOARD_splitkb_aurora_lily58_rev1

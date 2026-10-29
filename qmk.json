@@ -440,6 +440,46 @@
                 "HLC_NONE": "1",
                 "TARGET": "splitkb_aurora_helix_rev1_vial_hlc"
             }
+        ],
+        [
+            "splitkb/halcyon/sofle_v2/rev2",
+            "vial_hlc",
+            {
+                "HLC_TFT_DISPLAY": "1",
+                "TARGET": "splitkb_halcyon_sofle_v2_rev2_vial_hlc_display"
+            }
+        ],
+        [
+            "splitkb/halcyon/sofle_v2/rev2",
+            "vial_hlc",
+            {
+                "HLC_ENCODER": "1",
+                "TARGET": "splitkb_halcyon_sofle_v2_rev2_vial_hlc_encoder"
+            }
+        ],
+        [
+            "splitkb/halcyon/sofle_v2/rev2",
+            "vial_hlc",
+            {
+                "HLC_ENCODER_REV2": "1",
+                "TARGET": "splitkb_halcyon_sofle_v2_rev2_vial_hlc_encoder_rev2"
+            }
+        ],
+        [
+            "splitkb/halcyon/sofle_v2/rev2",
+            "vial_hlc",
+            {
+                "HLC_CIRQUE_TRACKPAD": "1",
+                "TARGET": "splitkb_halcyon_sofle_v2_rev2_vial_hlc_cirque_trackpad"
+            }
+        ],
+        [
+            "splitkb/halcyon/sofle_v2/rev2",
+            "vial_hlc",
+            {
+                "HLC_NONE": "1",
+                "TARGET": "splitkb_halcyon_sofle_v2_rev2_vial_hlc"
+            }
         ]
     ]
 }
